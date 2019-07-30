@@ -112,6 +112,22 @@ class Usuario extends \Illuminate\Database\Eloquent\Model
 		return $esValido;
 	}
 
+	public static function validacionSexo($sexo)
+	{
+		$esValido = false;
+
+		foreach (self::getSexosValidos() as $sexoValido)
+		{
+			if($sexo === $sexoValido)
+			{
+				$esValido = true;
+				break;
+			}
+		}
+
+		return $esValido;
+	}
+
 	public function getCampoID()
 	{
 		return $this->getKeyName();

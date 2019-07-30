@@ -138,12 +138,14 @@ class UsuarioControler implements IApiControler
         $condicion = self::cargarConBody($request);
 
         //retorna true si dentro de los parámetros ingresados está la Clave.
-        $tengoClave = array_key_exists(Usuario::getCampoClave(), $condicion);
+        $tengoParamClave = array_key_exists(Usuario::getCampoClave(), $condicion);
         //retorna true si dentro de los parámetros ingresados está el Usuario.
-        $tengoUsuario = array_key_exists(Usuario::getCampoUsuario(), $condicion);
+        $tengoParamUsuario = array_key_exists(Usuario::getCampoUsuario(), $condicion);
+        //retorna true si dentro de los parámetros ingresados está el Sexo.
+        $tengoParamSexo = array_key_exists(Usuario::getCampoSexo(), $condicion);
 
         //Si tengo usuario y clave lo valido
-        if($tengoUsuario && $tengoClave)
+        if($tengoParamUsuario && $tengoParamClave && $tengoParamSexo)
         {
             //retorna un objeto de tipo usuario con el usuario solicitado.
             $unUsuario = Usuario::searchUsuario($condicion[Usuario::getCampoUsuario()]);
@@ -155,19 +157,23 @@ class UsuarioControler implements IApiControler
             /*else if(!$unUsuario->validarPerfil($condicion[Usuario::getCampoPerfil()]))
             {
                 $newResponse = $response->withJson("Perfil invalido", 401);
-            }
-            else if(!$unUsuario->validarSexo($condicion[Usuario::getCampoSexo()]))
-            {
-                $newResponse = $response->withJson("Sexo invalido", 401);
             }*/
             else if(!$unUsuario->validarClave($condicion[Usuario::getCampoClave()]))
             {
                 $newResponse = $response->withJson("Clave invalida", 401);
             }
+            else if($condicion[Usuario::getCampoSexo()] !== $unUsuario->getSexo())
+            {
+                $newResponse = $response->withJson("Sexo invalido", 401);
+            }
             else
             {
                 $newResponse = $response->withJson(self::crearToken($unUsuario), 200);
             }
+        }
+        else
+        {
+            $newResponse = $response->withJson("Faltan pasar parametros (se requiere usuario, clave, y sexo)", 401);
         }
 
         return $newResponse;
