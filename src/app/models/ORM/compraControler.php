@@ -192,7 +192,98 @@ class CompraControler implements IApiControler
 
     public function ModificarUno($request, $response, $args)
     {
+        //modifico en la base
+        $estado = 0; //OK
+        $nuevoToken = "";
 
+        $condicion = self::cargarConBody($request);
+
+        $cambioArticulo = array_key_exists(Compra::getCampoArticulo(), $condicion);
+        $cambioPrecio = array_key_exists(Compra::getCampoPrecio(), $condicion);
+        $cambioFecha = array_key_exists(Compra::getCampoFecha(), $condicion);
+
+        $nuevoArticulo = array_key_exists("articulo2", $condicion);
+        $nuevoPrecio = array_key_exists("precio2", $condicion);
+
+        if(!$cambioArticulo || !$cambioPrecio || !$cambioFecha || !$nuevoArticulo || !$nuevoPrecio)
+        {
+            $estado = -2; //"No modifica ninguno de los atributos permitidos"
+        }
+        else
+        {
+            //cargo los atributos a ingresar en el objeto
+            $payload = $request->getAttribute("datosToken");
+
+            $compras = Compra::searchUsuario($payload->id);
+
+            foreach ($compras as $unaCompra)
+            {
+                if($unaCompra[Compra::getCampoArticulo()] == $condicion[Compra::getCampoArticulo()]
+                && $unaCompra[Compra::getCampoPrecio()] == $condicion[Compra::getCampoPrecio()]
+                && $unaCompra[Compra::getCampoFecha()] == $condicion[Compra::getCampoFecha()])
+                {
+                    $unaCompra->setArticulo($condicion["articulo2"]);
+                    $unaCompra->setPrecio($condicion["precio2"]);
+
+                    $unaCompra->save();
+                }
+            }
+        }
+
+        //Devuelvo el estado
+        $newResponse = $response->withJson($estado, 200);  
+        return $newResponse;
+    }
+
+    public function BorrarUsuario($request, $response, $args)
+    {
+        //modifico en la base
+        $estado = 0; //OK
+
+        $condicion = self::cargarConBody($request);
+
+        $tengoUsuario = array_key_exists('usuario', $condicion);
+
+        if(!$tengoUsuario)
+        {
+            $estado = -3; //"No tengo la clave completa para borrar las compra"
+        }
+        else
+        {
+            $usuario = Usuario::searchUsuario($condicion["usuario"]);
+
+            if($usuario)
+            {
+                //cargo un array de objetos de tipo Compra que satisfagan el id_usuario requerido
+                $compras = Compra::searchUsuario($usuario->id);
+
+                if($compras)
+                {
+                    foreach ($compras as $unaCompra)
+                    {
+                        //Borro la compra de la BD
+                        $borro = $unaCompra->delete();
+                        if(!$borro || is_null($borro))
+                        {
+                            $estado = -2; //"Error al borrar en la BD"
+                            break;
+                        }
+                    }
+                }
+                else
+                {
+                    $estado = -1; //"La Compra no existe"
+                }
+            }
+            else
+            {
+                $estado = -4; //"El usuario no existe"
+            }
+        }
+
+        //Devuelvo el estado
+        $newResponse = $response->withJson($estado, 200);  
+        return $newResponse;
     }
 
     private static function cargarConQueryParams($request)

@@ -181,7 +181,38 @@ class UsuarioControler implements IApiControler
 
     public function BorrarUno($request, $response, $args)
     {
+        //modifico en la base
+        $estado = 0; //OK
 
+        $condicion = self::cargarConBody($request);
+
+        $tengoUsuario = array_key_exists('usuario', $condicion);
+
+        if(!$tengoUsuario)
+        {
+            $estado = -3; //"No tengo la clave completa para borrar un usuario"
+        }
+        else
+        {
+            $usuario = Usuario::searchUsuario($condicion["usuario"]);
+
+            if($usuario)
+            {
+                $borro = $usuario->delete();
+                if(!$borro || is_null($borro))
+                {
+                    $estado = -2; //"Error al borrar en la BD"
+                }
+            }
+            else
+            {
+                $estado = -1; //"El usuario no existe"
+            }
+        }
+
+        //Devuelvo el estado
+        $newResponse = $response->withJson($estado, 200);  
+        return $newResponse;
     }
 
     public function ModificarUno($request, $response, $args)

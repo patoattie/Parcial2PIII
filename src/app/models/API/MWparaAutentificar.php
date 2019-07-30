@@ -218,7 +218,7 @@ class MWparaAutentificar
 		{
 			$salida = $salida . "<tr>";
 			$imagen = __DIR__ . "/../../../../IMGCompras/" . $unaCompra["id"] . "_" . $unaCompra[Compra::getCampoArticulo()] . ".png";
-			$imagenURL = "http://localhost/Simulacro2P/IMGCompras/" . $unaCompra["id"] . "_" . $unaCompra[Compra::getCampoArticulo()] . ".png";
+			$imagenURL = "http://localhost/Parcial2PIII/IMGCompras/" . $unaCompra["id"] . "_" . $unaCompra[Compra::getCampoArticulo()] . ".png";
 
 			if(file_exists($imagen))
 			{

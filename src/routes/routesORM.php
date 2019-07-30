@@ -47,10 +47,20 @@ return function (App $app) {
 			return (new usuarioControler())->ModificarUno($request, $response, $args);
 	  	});
 
+		$this->delete('/usuario[/]', function (Request $request, Response $response, array $args) use ($container)
+		{
+			return ((new compraControler())->BorrarUsuario($request, $response, $args) && (new usuarioControler())->BorrarUno($request, $response, $args));
+	  	})->add(MWparaAutentificar::class . ':ExclusivoAdmin');
+
 		$this->get('/compra[/]', function (Request $request, Response $response, array $args) use ($container)
 		{
 			return (new compraControler())->TraerTodos($request, $response, $args);
 	  	})->add(MWparaAutentificar::class . ':FiltrarCompras')->add(MWparaAutentificar::class . ':FormatearSalidaCompras');
+
+		$this->put('/compra[/]', function (Request $request, Response $response, array $args) use ($container)
+		{
+			return (new compraControler())->ModificarUno($request, $response, $args);
+	  	});
 
 		$this->delete('/compra[/]', function (Request $request, Response $response, array $args) use ($container)
 		{
