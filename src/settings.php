@@ -20,7 +20,7 @@ return [
         'db' => [
                 'driver' => 'mysql',
                 'host' => 'localhost',
-                'database' => 'simulacro2P',
+                'database' => 'parcial2',
                 'username' => 'root',
                 'password' => '',
                 'charset'   => 'utf8',
