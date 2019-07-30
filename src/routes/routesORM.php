@@ -85,7 +85,7 @@ return function (App $app) {
 			return (new usuarioControler())->Login($request, $response, $args);
 	  	});     
 
-		/*$this->post('/usuario/altaAdminPorDefecto[/]', function (Request $request, Response $response, array $args) use ($container)
+		$this->post('/usuario/altaAdminPorDefecto[/]', function (Request $request, Response $response, array $args) use ($container)
 		{
 			echo (new usuarioControler())->CargarUno($request, $response, $args);
 	  	})->add(function($request, $response, $next) //middleware
@@ -95,7 +95,7 @@ return function (App $app) {
 				$response = $next($request, $response);
 
 				return $response;
-			});*/
+			});
 	});
 
 	$container = $app->getContainer();
