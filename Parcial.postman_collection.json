@@ -1,0 +1,334 @@
+{
+	"info": {
+		"_postman_id": "fb3ec8ae-b67c-4e87-86e4-d46932e58234",
+		"name": "Parcial",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost/Parcial2PIII/public",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost/Parcial2PIII/public",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Parcial2PIII",
+						"public"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost/Parcial2PIII/public/usuario/altaAdminPorDefecto",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost/Parcial2PIII/public/usuario/altaAdminPorDefecto",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Parcial2PIII",
+						"public",
+						"usuario",
+						"altaAdminPorDefecto"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost/Parcial2PIII/public/usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nombre",
+							"value": "tarjeta",
+							"type": "text"
+						},
+						{
+							"key": "clave",
+							"value": "tarjeta",
+							"type": "text"
+						},
+						{
+							"key": "sexo",
+							"value": "femenino",
+							"type": "text"
+						},
+						{
+							"key": "perfil",
+							"value": "sarasa",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost/Parcial2PIII/public/usuario",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Parcial2PIII",
+						"public",
+						"usuario"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost/Parcial2PIII/public/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nombre",
+							"value": "admin",
+							"type": "text"
+						},
+						{
+							"key": "clave",
+							"value": "admin",
+							"type": "text"
+						},
+						{
+							"key": "perfil",
+							"value": "usuario",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "sexo",
+							"value": "femenino",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost/Parcial2PIII/public/login",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Parcial2PIII",
+						"public",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost/Parcial2PIII/public/usuario",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "jwt",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NjQ1MTgyMzAsImV4cCI6MTU2NDUyMTgzMCwiYXVkIjoiYzljOWRiYjNjNWZiOTA0ZWU1YzAyZTJjM2Y2ZWE4ZWJmODUzYTMxOSIsImRhdGEiOnsiaWQiOjEsIm5vbWJyZSI6ImFkbWluIiwicGVyZmlsIjoiYWRtaW4iLCJzZXhvIjoiZmVtZW5pbm8ifSwiYXBwIjoiQVBJIFJFU1QgQ0QgVVROIEZSQSJ9.kEzREGVsrr2g0-YB8HtrsYw7XAFc1O7fCOfJiyqec7Q",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost/Parcial2PIII/public/usuario",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Parcial2PIII",
+						"public",
+						"usuario"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost/Parcial2PIII/public/listaCompras",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "jwt",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NjQ1MjI2NDQsImV4cCI6MTU2NDUyNjI0NCwiYXVkIjoiYzljOWRiYjNjNWZiOTA0ZWU1YzAyZTJjM2Y2ZWE4ZWJmODUzYTMxOSIsImRhdGEiOnsiaWQiOjUsIm5vbWJyZSI6Im1hcmlhIiwicGVyZmlsIjoidXN1YXJpbyIsInNleG8iOiJmZW1lbmlubyJ9LCJhcHAiOiJBUEkgUkVTVCBDRCBVVE4gRlJBIn0.Ysusyj5DKPByReAFHIH0TBPjE1RnCIGCSv844qyRlb0",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost/Parcial2PIII/public/listaCompras",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Parcial2PIII",
+						"public",
+						"listaCompras"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost/Parcial2PIII/public/compra",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "jwt",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NjQ1MjI5NTEsImV4cCI6MTU2NDUyNjU1MSwiYXVkIjoiYzljOWRiYjNjNWZiOTA0ZWU1YzAyZTJjM2Y2ZWE4ZWJmODUzYTMxOSIsImRhdGEiOnsiaWQiOjYsIm5vbWJyZSI6InRhcmpldGEiLCJwZXJmaWwiOiJ1c3VhcmlvIiwic2V4byI6ImZlbWVuaW5vIn0sImFwcCI6IkFQSSBSRVNUIENEIFVUTiBGUkEifQ.IIJ5w_t1Ihyb29yQ3nERG1K3ROEk6oZYNpsfdKPexMc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "articulo",
+							"value": "pantuflas",
+							"type": "text"
+						},
+						{
+							"key": "precio",
+							"value": "55",
+							"type": "text"
+						},
+						{
+							"key": "foto",
+							"value": null,
+							"type": "file"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost/Parcial2PIII/public/compra",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Parcial2PIII",
+						"public",
+						"compra"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost/Parcial2PIII/public/compra",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "jwt",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NjQ1MjEzMDUsImV4cCI6MTU2NDUyNDkwNSwiYXVkIjoiYzljOWRiYjNjNWZiOTA0ZWU1YzAyZTJjM2Y2ZWE4ZWJmODUzYTMxOSIsImRhdGEiOnsiaWQiOjMsIm5vbWJyZSI6Im1hcmlhIiwicGVyZmlsIjoidXN1YXJpbyIsInNleG8iOiJmZW1lbmlubyJ9LCJhcHAiOiJBUEkgUkVTVCBDRCBVVE4gRlJBIn0.CmxSEuIv5gfS9gWru0M31jeM1zNMO-4Km4Y_jBHyH_c",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "articulo",
+							"value": "lechuga",
+							"type": "text"
+						},
+						{
+							"key": "precio",
+							"value": "22",
+							"type": "text"
+						},
+						{
+							"key": "fecha",
+							"value": "2019-07-30 18:18:23",
+							"type": "text"
+						},
+						{
+							"key": "articulo2",
+							"value": "rebenque",
+							"type": "text"
+						},
+						{
+							"key": "precio2",
+							"value": "33",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost/Parcial2PIII/public/compra",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Parcial2PIII",
+						"public",
+						"compra"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost/Parcial2PIII/public/usuario",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "jwt",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NjQ1MjI1MDQsImV4cCI6MTU2NDUyNjEwNCwiYXVkIjoiYzljOWRiYjNjNWZiOTA0ZWU1YzAyZTJjM2Y2ZWE4ZWJmODUzYTMxOSIsImRhdGEiOnsiaWQiOjEsIm5vbWJyZSI6ImFkbWluIiwicGVyZmlsIjoiYWRtaW4iLCJzZXhvIjoiZmVtZW5pbm8ifSwiYXBwIjoiQVBJIFJFU1QgQ0QgVVROIEZSQSJ9.oHxLXjhNWaiuJTfSUPEY5wetAJu6AQu8LkBEiy_jjfs",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "usuario",
+							"value": "pepe",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost/Parcial2PIII/public/usuario",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Parcial2PIII",
+						"public",
+						"usuario"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
